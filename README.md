@@ -1,1 +1,1 @@
-# yii2-geoname
+# yii2-geonames
