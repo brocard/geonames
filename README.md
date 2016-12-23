@@ -1,1 +1,1 @@
-# yii2-geonames
+# geonames library
