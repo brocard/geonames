@@ -1,9 +1,9 @@
 # geonames library
 
 
-Add the Geoname service provider to the config/app.php file in the providers array:
+Add the Geoname service provider to the <code>config/app.php</code> file in the providers array:
 
-```
+```php
 'providers' => [
     // Laravel Framework Service Providers...
     //...
@@ -18,11 +18,11 @@ Add the Geoname service provider to the config/app.php file in the providers arr
 ```
 
 For first time
-```php
+```
 php artisan vendor:publish --provider="BrocardJr\Geo\GeoServiceProvider"
 ```
 
 Reload de config for some changes
-```php
+```
 php artisan vendor:publish --provider="BrocardJr\Geo\GeoServiceProvider" --tag=config --force
 ```
