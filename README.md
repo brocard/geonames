@@ -1,7 +1,7 @@
 # geonames library
 
 
-Add the Geoname service provider to the <code>config/app.php</code> file in the providers array:
+Add the Geoname service provider to the <code>config/app.php</code> file in the <code>providers</code> array:
 
 ```php
 'providers' => [
