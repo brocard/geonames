@@ -1,0 +1,28 @@
+{
+    "name": "brocard/geolocation",
+    "description": "A short description of what your package does",
+     "keywords": [
+        "brocard",
+        "geonames",
+        "laravel",
+        "laravel 5.3",
+        "package"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "5.6",
+        "guzzlehttp/guzzle": "6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BrocardJr\\Geo\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yusniel Brocard",
+            "email": "brocard@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
