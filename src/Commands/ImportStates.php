@@ -6,10 +6,10 @@ use BrocardJr\Geo\GeoServices;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Output;
 
 //use BrocardJr\Geo\Facades\GeoServices;
+
 
 class ImportStates extends Command
 {
@@ -18,7 +18,9 @@ class ImportStates extends Command
      *
      * @var string
      */
+
     protected $signature = 'geo:import-states';
+
 
     /**
      * The console command description.
@@ -26,6 +28,7 @@ class ImportStates extends Command
      * @var string
      */
     protected $description = 'Import all states/region from countries database';
+
 
     /**
      * Create a new command instance.

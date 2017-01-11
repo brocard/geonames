@@ -2,8 +2,8 @@
 
 namespace BrocardJr\Geo\Commands;
 
-use BrocardJr\Geo\GeoServices;
 use Carbon\Carbon;
+use BrocardJr\Geo\GeoServices;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -70,6 +70,7 @@ class ImportCountries extends Command
         $bar->setBarWidth(46);
 
         $this->info(" Import data countries from api.geonames.org...");
+
         $result = [];
         foreach ($items as $index => $item) {
             $index++;
@@ -159,5 +160,5 @@ class ImportCountries extends Command
             DB::rollback();
             dd($e->getMessage());
         }
-    } 
+    }
 }
