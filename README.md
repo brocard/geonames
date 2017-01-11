@@ -26,3 +26,18 @@ Reload de config for some changes
 ```
 php artisan vendor:publish --provider="BrocardJr\Geo\GeoServiceProvider" --tag=config --force
 ```
+
+Install migrations
+```
+php artisan geo:import-countries
+```
+
+Get countries from api.geonames.org
+```
+php artisan geo:import-countries
+```
+
+Get states from api.geonames.org
+```
+php artisan geo:import-states
+```
