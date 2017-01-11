@@ -47,7 +47,6 @@ class GeoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-<<<<<<< HEAD
         $loader = AliasLoader::getInstance();
         $loader->alias('GeoServices', GeoFacade::class);
 
