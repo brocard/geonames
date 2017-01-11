@@ -2,7 +2,6 @@
 
 namespace BrocardJr\Geo;
 
-<<<<<<< HEAD
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use BrocardJr\Geo\Facades\Geoservices as GeoFacade;
@@ -14,13 +13,6 @@ class GeoServiceProvider extends ServiceProvider
      */
     protected $commands = [
         'BrocardJr\Geo\Commands\InstallCommand',
-=======
-use Illuminate\Support\ServiceProvider;
-
-class GeoServiceProvider extends ServiceProvider
-{
-    protected $commands = [
->>>>>>> e88bd0f6767e8c88b4256ac5189ca1ffa4266736
         'BrocardJr\Geo\Commands\GeoLocation',
         'BrocardJr\Geo\Commands\ImportCountries',
         'BrocardJr\Geo\Commands\ImportStates',
@@ -34,7 +26,6 @@ class GeoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-<<<<<<< HEAD
         $publishable = [
             'migrations' => [
                 __DIR__ . "/database/migrations/" => database_path('migrations'),
@@ -47,11 +38,6 @@ class GeoServiceProvider extends ServiceProvider
         foreach ($publishable as $group => $paths) {
             $this->publishes($paths, $group);
         }
-=======
-        $this->publishes([
-            __DIR__.'/config/geonames.php' => config_path('geonames.php'),
-        ], 'config');
->>>>>>> e88bd0f6767e8c88b4256ac5189ca1ffa4266736
     }
 
     /**
@@ -79,8 +65,6 @@ class GeoServiceProvider extends ServiceProvider
      */
     private function registerCommands()
     {
-=======
->>>>>>> e88bd0f6767e8c88b4256ac5189ca1ffa4266736
         $this->commands($this->commands);
     }
 }
