@@ -58,8 +58,6 @@ class GeoServices
 
     private static $_results;
 
-<<<<<<< HEAD
-
     /**
      *  Singleton Geoservices Class.
      */
@@ -74,8 +72,6 @@ class GeoServices
         return static::$instance;
     }
 
-=======
->>>>>>> e88bd0f6767e8c88b4256ac5189ca1ffa4266736
     /**
      * @param $name
      * @param array $args
@@ -94,11 +90,8 @@ class GeoServices
                 });
             } else {
                 logger('set Cache...', ['keyCache' => $keyCache]);
-<<<<<<< HEAD
+
                 $expiresAt = Carbon::now()->addMinutes(30);
-=======
-                $expiresAt = Carbon::now()->addMinutes(20);
->>>>>>> e88bd0f6767e8c88b4256ac5189ca1ffa4266736
                 $response = static::getResponse($name, $args);
                 Cache::put($keyCache, $response, $expiresAt);
                 return $response;
