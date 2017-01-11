@@ -1,6 +1,6 @@
 {
     "name": "brocard/geolocation",
-    "description": "A short description of what your package does",
+    "description": "Set a geolocation tables for any projects",
      "keywords": [
         "brocard",
         "geonames",
