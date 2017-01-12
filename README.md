@@ -29,7 +29,7 @@ php artisan vendor:publish --provider="BrocardJr\Geo\GeoServiceProvider" --tag=c
 
 Install migrations
 ```
-php artisan geo:import-countries
+php artisan geo:install
 ```
 
 Get countries from api.geonames.org
