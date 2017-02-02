@@ -1,7 +1,7 @@
 {
     "name": "brocard/geolocation",
     "description": "Set a geolocation tables for any projects",
-     "keywords": [
+    "keywords": [
         "brocard",
         "geonames",
         "laravel",
