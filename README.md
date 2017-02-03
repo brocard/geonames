@@ -17,7 +17,12 @@ Add the Geoname service provider to the <code>config/app.php</code> file in the 
 ],
 ```
 
-For first time
+For first instance you only need set enviroment variable intro <code> .env </code> file in root directoy
+```
+example:  GEONAMES_USERNAME=your_username
+```
+
+You may easily access your configuration values using the global config helper function only run the next artisan command
 ```
 php artisan vendor:publish --provider="BrocardJr\Geo\GeoServiceProvider"
 ```
