@@ -1,7 +1,6 @@
 # geonames library
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/brocard/geonames/master/LICENSE.md)
-
 [![Total Downloads](https://img.shields.io/packagist/dt/brocard/geolocation.svg?style=flat-square)](https://packagist.org/packages/brocard/geolocation)
 
 Add the Geoname service provider to the <code>config/app.php</code> file in the <code>providers</code> array:
