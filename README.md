@@ -1,5 +1,6 @@
 # geonames library
 
+[![Total Downloads](https://img.shields.io/packagist/dt/brocard/geolocation.svg?style=flat-square)](https://packagist.org/packages/brocard/geolocation)
 
 Add the Geoname service provider to the <code>config/app.php</code> file in the <code>providers</code> array:
 
