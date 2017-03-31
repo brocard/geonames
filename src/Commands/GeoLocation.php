@@ -39,17 +39,16 @@ class GeoLocation extends Command
         $lang = ($this->argument('lang')) ? $this->argument('lang') : 'en';
         $items = GeoServices::children([
             'geonameId' => GeoServices::EARTH_GEONAMEID,
-            'lang' => $lang,
-            'style' => 'full',
+            'lang'      => $lang,
+            'style'     => 'full',
         ]);
-
 
         $result = [];
         foreach ($items['geonames'] as $index => $item) {
             $result[$index] = [
                 'geonameId' => $item->geonameId,
-                'name' => $item->name,
-                'code' => $item->continentCode
+                'name'      => $item->name,
+                'code'      => $item->continentCode,
             ];
         }
         $this->table(['id', 'Name', 'continentCode'], $result);
@@ -59,13 +58,12 @@ class GeoLocation extends Command
         foreach (GeoServices::$continentCodes as $code => $geoID) {
             $countries[$code] = GeoServices::children([
                 'geonameId' => $geoID,
-                'lang' => $lang,
+                'lang'      => $lang,
             ]);
         }
 
         dd($countries);
 
-
-        $this->info("\n Done!!! " . __CLASS__);
+        $this->info("\n Done!!! ".__CLASS__);
     }
 }

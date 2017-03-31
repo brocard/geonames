@@ -2,8 +2,8 @@
 
 namespace BrocardJr\Geo\Commands;
 
-use Illuminate\Console\Command;
 use BrocardJr\Geo\GeoServiceProvider;
+use Illuminate\Console\Command;
 
 class InstallCommand extends Command
 {

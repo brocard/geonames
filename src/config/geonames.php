@@ -5,4 +5,3 @@ return [
         'username' => env('GEONAMES_USERNAME', 'demo'),
     ],
 ];
-

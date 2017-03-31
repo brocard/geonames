@@ -48,12 +48,12 @@ class GeoServices
     protected static $supportedMethods = [
         'countryInfo' => [
             'params' => ['country', 'lang'],
-            'root' => 'geonames',
+            'root'   => 'geonames',
         ],
         'children' => [
             'params' => ['geonameId', 'maxRows'],
-            'root' => 'geonames',
-        ]
+            'root'   => 'geonames',
+        ],
     ];
 
     private static $_results;
@@ -75,17 +75,19 @@ class GeoServices
     /**
      * @param $name
      * @param array $args
+     *
      * @return string
      */
-    public static function __callStatic($name, $args=[])
+    public static function __callStatic($name, $args = [])
     {
         // Note: value of $name is case sensitive.
         if (array_key_exists($name, self::$supportedMethods)) {
             self::setDefaultParams();
-            $keyCache = $name . implode('.', $args[0]);
+            $keyCache = $name.implode('.', $args[0]);
             if (Cache::has($keyCache)) {
                 logger('get Cache...', ['keyCache' => $keyCache]);
-                return Cache::get($keyCache, function() use ($name, $args){
+
+                return Cache::get($keyCache, function () use ($name, $args) {
                     return static::getResponse($name, $args);
                 });
             } else {
@@ -94,6 +96,7 @@ class GeoServices
                 $expiresAt = Carbon::now()->addMinutes(30);
                 $response = static::getResponse($name, $args);
                 Cache::put($keyCache, $response, $expiresAt);
+
                 return $response;
             }
         }
@@ -102,31 +105,34 @@ class GeoServices
     }
 
     /**
-     * Get response from geonames.org api rest for any function
+     * Get response from geonames.org api rest for any function.
+     *
      * @param $name
      * @param array $args
+     *
      * @return mixed
      */
-    public static function getResponse($name, $args=[])
+    public static function getResponse($name, $args = [])
     {
         logger('function getResponse...', ['method' => $name]);
 
         $client = new Client(['base_uri' => self::$base_uri]);
-        $uri = $name . self::FORMAT_RESPONSE;
+        $uri = $name.self::FORMAT_RESPONSE;
         $query = isset($args)
             ? array_merge(self::$default_params, $args[0])
             : self::$default_params;
 
         $response = $client->request('GET', $uri, [
-            'query' => $query
+            'query' => $query,
         ]);
 
         if ($response->getStatusCode() == Response::HTTP_OK) {
             self::$_results = \GuzzleHttp\json_decode($response->getBody()
                 ->getContents(), true);
 
-            if (isset(self::$supportedMethods[$name]['root']))
+            if (isset(self::$supportedMethods[$name]['root'])) {
                 self::_parseRoot(self::$supportedMethods[$name]['root']);
+            }
 
             return self::$_results;
         }
@@ -135,15 +141,15 @@ class GeoServices
     }
 
     /**
-     * Set de default params
+     * Set de default params.
      */
     private static function setDefaultParams()
     {
         self::$default_params = [
             'formatted' => true,
-            'username' => env('GEONAMES_USERNAME', 'demo'),
-            'lang' => 'en',
-            'maxRows' => self::$maxRows,
+            'username'  => env('GEONAMES_USERNAME', 'demo'),
+            'lang'      => 'en',
+            'maxRows'   => self::$maxRows,
         ];
     }
 
@@ -152,17 +158,14 @@ class GeoServices
      */
     private static function _parseRoot($root)
     {
-        if (isset(self::$_results[$root]) && is_array(self::$_results[$root]))
-        {
+        if (isset(self::$_results[$root]) && is_array(self::$_results[$root])) {
             $e = current(self::$_results[$root]);
-            if (is_array($e))
-            {
+            if (is_array($e)) {
                 $cnt = count(self::$_results[$root]);
-                for ($i = 0; $i < $cnt; $i++)
-                {
+                for ($i = 0; $i < $cnt; $i++) {
                     self::$_results[$root][$i] = new GeoResult(self::$_results[$root][$i]);
                 }
-            }else {
+            } else {
                 self::$_results[$root] = new GeoResult(self::$_results[$root]);
             }
         }

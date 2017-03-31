@@ -6,10 +6,8 @@ use BrocardJr\Geo\GeoServices;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Output;
 
 //use BrocardJr\Geo\Facades\GeoServices;
-
 
 class ImportStates extends Command
 {
@@ -18,9 +16,7 @@ class ImportStates extends Command
      *
      * @var string
      */
-
     protected $signature = 'geo:import-states';
-
 
     /**
      * The console command description.
@@ -28,7 +24,6 @@ class ImportStates extends Command
      * @var string
      */
     protected $description = 'Import all states/region from countries database';
-
 
     /**
      * Create a new command instance.
@@ -59,9 +54,8 @@ class ImportStates extends Command
             ]);
 
             if (!empty($items['totalResultsCount'])) {
-
                 $msg = " | Country:{$country->name} | geonameId:{$country->geonameId}";
-                $this->output->success('TotalResultsCount: ' . $items['totalResultsCount'] . $msg);
+                $this->output->success('TotalResultsCount: '.$items['totalResultsCount'].$msg);
 
                 $states = [];
                 foreach ($items['geonames'] as $index => $item) {
@@ -94,13 +88,13 @@ class ImportStates extends Command
         $this->info("\n".' Successfully inserted states! Enjoy 🎉');
 
         //dd($countries);
-        $this->info("\n Done!!! " . __CLASS__);
+        $this->info("\n Done!!! ".__CLASS__);
     }
 
     /**
      * @param array $results
      */
-    protected function insertData($results =[])
+    protected function insertData($results = [])
     {
         DB::beginTransaction();
         try {
@@ -109,13 +103,13 @@ class ImportStates extends Command
 
                 DB::table('states')->insert([
                     [
-                        'name' => $item['name'],
+                        'name'       => $item['name'],
                         'country_id' => $item['country_id'],
                         'created_at' => $dateTime,
                         'updated_at' => $dateTime,
-                        'status' => 1,
-                        'geonameId' => $item['geonameId'],
-                    ]
+                        'status'     => 1,
+                        'geonameId'  => $item['geonameId'],
+                    ],
                 ]);
             }
 

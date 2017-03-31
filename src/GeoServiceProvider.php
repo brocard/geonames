@@ -2,9 +2,9 @@
 
 namespace BrocardJr\Geo;
 
+use BrocardJr\Geo\Facades\Geoservices as GeoFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use BrocardJr\Geo\Facades\Geoservices as GeoFacade;
 
 class GeoServiceProvider extends ServiceProvider
 {
@@ -28,11 +28,11 @@ class GeoServiceProvider extends ServiceProvider
     {
         $publishable = [
             'migrations' => [
-                __DIR__ . "/database/migrations/" => database_path('migrations'),
+                __DIR__.'/database/migrations/' => database_path('migrations'),
             ],
             'config' => [
-                __DIR__.'/config/geonames.php' => config_path('geonames.php')
-            ]
+                __DIR__.'/config/geonames.php' => config_path('geonames.php'),
+            ],
         ];
 
         foreach ($publishable as $group => $paths) {
@@ -60,7 +60,7 @@ class GeoServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all commands in actual service provider
+     * Register all commands in actual service provider.
      */
     private function registerCommands()
     {

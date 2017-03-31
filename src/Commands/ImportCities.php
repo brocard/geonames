@@ -35,6 +35,6 @@ class ImportCities extends Command
      */
     public function handle()
     {
-        $this->info("\n Done!!! " . __CLASS__);
+        $this->info("\n Done!!! ".__CLASS__);
     }
 }
