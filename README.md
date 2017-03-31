@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/brocard/geolocation.svg?style=flat-square)](https://packagist.org/packages/brocard/geolocation)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/brocard/geonames/master/LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/brocard/geolocation.svg?style=flat-square)](https://packagist.org/packages/brocard/geolocation)
+[![StyleCI](https://styleci.io/repos/30606575/shield?branch=master)](https://styleci.io/repos/30606575)
 
 Add the Geoname service provider to the <code>config/app.php</code> file in the <code>providers</code> array:
 
