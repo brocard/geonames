@@ -44,7 +44,7 @@ class ImportStates extends Command
         //'Catalunya' => 3336901
         //dd(GeoServices::children(['geonameId' => 3336901]));
 
-        DB::table('states')->truncate();
+        DB::table('states')->delete();
 
         $countries = DB::table('countries')->where('status', 1)->get();
         foreach ($countries as $country) {
@@ -70,18 +70,9 @@ class ImportStates extends Command
                     array_set($states[$index], 'name', $nameState);
                     array_set($states[$index], 'country_id', $country->id);
                     array_set($states[$index], 'geonameId', $item->geonameId);
-
-                    //$states[] = [
-                        //'name' => $item->name,
-                        //'country_id' => $country->id,
-                    //];
                 }
 
-                //dd($states);
-
                 $this->insertData($states);
-
-                //dd('STOP HERE!!! __ LINE: ' . __LINE__);
             }
         }
 
