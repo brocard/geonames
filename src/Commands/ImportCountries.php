@@ -86,6 +86,9 @@ class ImportCountries extends Command
 
             $country = array_get($countryInfo, 'geonames.0');
 
+            if (empty($country))
+                continue;
+
             $lang = array_first(explode(',', $country->languages));
             $language = array_first(explode('-', $lang));
 
